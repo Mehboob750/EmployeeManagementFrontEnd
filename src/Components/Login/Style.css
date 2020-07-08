@@ -1,0 +1,42 @@
+
+  /* Add styles to the form container */
+  .container {
+
+    margin:1px;
+    max-width: 400px;
+    padding: 16px;
+    background-color: white;
+    grid-gap: 10px;
+  }
+  
+  /* Full-width input fields */
+    input[type=email], input[type=password],input[type=text] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=email]:focus, input[type=password]:focus,input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  .container .footer .btn{
+    background-color: #66caf1;
+    border: none;
+    color: black;
+    padding: 15px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  
