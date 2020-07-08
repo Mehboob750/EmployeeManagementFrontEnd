@@ -1,7 +1,10 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
-
+import "./Style.css";
 import {Link } from "react-router-dom";
+import empService from '../../Services/EmployeeServices'
+let service = new empService()
+
 export class Register extends React.Component {
   constructor(props) {
     super(props);
@@ -9,10 +12,9 @@ export class Register extends React.Component {
       FirstName:'',
       LastName:'',
       Gender:'',
-      EmailID:'',
+      EmailId:'',
       City:'',
       Password:''
-     
     }
   }
   
@@ -31,10 +33,20 @@ export class Register extends React.Component {
       FirstName:this.state.FirstName,
       LastName:this.state.LastName,
       Gender:this.state.Gender,
-      EmailID:this.state.EmailID,
+      PhoneNumber:this.state.PhoneNumber,
+      EmailId:this.state.EmailId,
       City:this.state.City,
       Password:this.state.Password
     }
+    service.register(requestData).then((data)=>{
+      this.props.history.push("/");
+      console.log(" Registration Successful ", data);
+      
+    }).catch((err)=>{
+      console.log(err);
+      
+    })
+
 
   }
   render() 
@@ -47,11 +59,11 @@ export class Register extends React.Component {
          <Grid container spacing={5}>
             <Grid item xs={6}>
             First Name
-            <input type="text" name="firstname" onChange={this.handleChange} value={this.state.FirstName} placeholder="Enter First Name" />
+            <input type="text" name="FirstName" onChange={this.handleChange} value={this.state.FirstName} placeholder="Enter First Name" />
             </Grid>
             <Grid item xs={6}>
             Last Name
-            <input type="text" name="lastname" onChange={this.handleChange} value={this.state.LastName} placeholder="Enter Last Name" />
+            <input type="text" name="LastName" onChange={this.handleChange} value={this.state.LastName} placeholder="Enter Last Name" />
             </Grid>
             <Grid item xs={6}>
             Gender
@@ -59,11 +71,11 @@ export class Register extends React.Component {
             </Grid>
             <Grid item xs={6}>
             Phone Number
-            <input type="text" name="number" onChange={this.handleChange} value={this.state.PhoneNumber} placeholder="Enter Phone Number" />
+            <input type="text" name="PhoneNumber" onChange={this.handleChange} value={this.state.PhoneNumber} placeholder="Enter Phone Number" />
             </Grid>
             <Grid item xs={12}>
              Email ID
-              <input type="text" name="EmailID" onChange={this.handleChange} value={this.state.EmailID} placeholder="Enter Email Id" />
+              <input type="email" name="EmailId" onChange={this.handleChange} value={this.state.EmailId} placeholder="Enter Email Id" />
              </Grid>
              <Grid item xs={6}>
               City
@@ -73,8 +85,8 @@ export class Register extends React.Component {
               Password
             <input type="Password" name="Password" onChange={this.handleChange} value={this.state.Password} placeholder="Enter Password" />         
             </Grid>
-               <div className="footer" align="center">
-              <button type="button" onClick={this.register} className="btn btn-success">Register</button>
+               <div className="footer">
+              <button type="button" onClick={this.register} className="btn">Register</button>
               <Link to="/"><button type="button" className="btn">Login</button></Link>
             </div>
             </Grid>
