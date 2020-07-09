@@ -1,9 +1,10 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import "./Style.css";
-import { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import "./Style.scss";
 import { Link } from "react-router-dom";
-import loginImage from "../../Assets/login.png";
+import { Grid } from "@material-ui/core";
+import Typography from '@material-ui/core/Typography';
 import empService from '../../Services/EmployeeServices';
 let service = new empService()
 
@@ -47,23 +48,31 @@ export class Login extends React.Component {
     render() 
     {
       return (
-        <div>
-          <fieldset>
-            <form  class="container">
-               <h2 align="center">Login</h2>
+        <form class="container">
+          
+          <p class="title" align="center">
+          <Typography component="h1" variant="h5">
+          Login
+        </Typography>
+        </p>
+              <div className="text">
                <TextField id="outlined-basic" label="Email Id" variant="outlined" onChange={this.handleChange} value={this.state.Email} />
-                 {/* <p>Email Id</p> */}
-                    {/* <input type="email" id="email" name="Email" onChange={this.handleChange} value={this.state.Email} placeholder="Enter Email Id" title="Email Id is required" required/> */}
-                 {/* /<p>Password</p> */}
-                   {/* // <input type="Password" name="Password" onChange={this.handleChange} value={this.state.Password} placeholder="Enter Password"  title="Password is required" required/> */}
-                    <TextField id="outlined-basic" label="Password" variant="outlined" onChange={this.handleChange} value={this.state.Password} />
-                 <div className="footer">
-                 <button type="button" onClick={this.login} className="btn"> Login </button>
-                     <Link to="/register"><button type="button" className="btn">Register</button></Link>
                 </div>
-             </form>
-          </fieldset>
-        </div>
+
+                <div className="text">
+                <TextField id="outlined-basic" label="Password" variant="outlined" onChange={this.handleChange} value={this.state.Password} />
+                </div>
+
+                <Grid item xs={12} className="footers">
+                <div className="btn">
+                 <Button variant="contained" color="primary" onClick={this.login}  className="submit">
+                 Login
+                  </Button>
+                  </div>
+                  </Grid>
+                     <Link to="/register"> {"Don't have an account? Register"}</Link>
+      
+        </form>
       );
     }
   }

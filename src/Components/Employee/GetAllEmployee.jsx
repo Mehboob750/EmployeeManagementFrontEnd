@@ -6,6 +6,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableHead from '@material-ui/core/TableHead';  
 import TableContainer from '@material-ui/core/TableContainer';  
 import TableBody from '@material-ui/core/TableBody';  
+import Button from '@material-ui/core/Button';
+
 import {Link } from "react-router-dom";
 
 
@@ -22,11 +24,13 @@ export class GetAllEmployee extends React.Component {
   render() {
     return (
       <TableContainer component={Paper}> 
-      <h2 align="right"> <Link to="/addemployee" align="right"><button type="button" className="btn btn-success" >
-            Add Employee
-          </button></Link>  <Link to="/" align="right"><button type="button" className="btn btn-primary" >
-           LogOut
-          </button></Link></h2>
+      <h2 align="right"> 
+      <Link to="/addemployee" align="right">
+      <Button variant="contained" color="primary" className="btn btn-success"> Add Employee </Button>
+      </Link>  
+      <Link to="/" align="right">
+      <Button variant="contained" color="primary" className="btn btn-primary">  LogOut </Button>
+      </Link></h2>
       <h2 align="center">Employee List </h2>
         <Table stickyHeader aria-label="sticky table" id='Employee'>  
           <TableHead>  

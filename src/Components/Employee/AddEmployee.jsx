@@ -1,6 +1,9 @@
 import React from "react";
-import "../../Components/Login/Style.css";
+import "../../Components/Login/Style.scss";
 import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 export class AddEmployee extends React.Component {
   constructor(props) {
     super(props);
@@ -25,41 +28,39 @@ export class AddEmployee extends React.Component {
   render() 
   {
     return (
-      <div className="base-container" ref={this.props.containerRef}>
-       <fieldset>
-            <form  class="container">
-        <h2 align="center">Add Employee</h2>
+<div class="login-box">
+    <form class="container">
+    <p class="title" align="center">
+            <Typography component="h1" variant="h5">
+             Add Employee
+            </Typography>
+            </p>
          <Grid container spacing={5}>
             <Grid item xs={6}>
-            First Name
-            <input type="text" name="firstname" onChange={this.handleChange} value={this.state.FirstName} placeholder="Enter First Name" />
+            <TextField name="FirstName" label="First Name" variant="outlined" onChange={this.handleChange} value={this.state.FirstName} />
             </Grid>
             <Grid item xs={6}>
-            Last Name
-            <input type="text" name="lastname" onChange={this.handleChange} value={this.state.LastName} placeholder="Enter Last Name" />
+            <TextField name="LastName" label="Last Name" variant="outlined" onChange={this.handleChange} value={this.state.LastName} />           
             </Grid>
             <Grid item xs={6}>
-            Gender
-            <input type="text" name="Gender" onChange={this.handleChange} value={this.state.Gender} placeholder="Enter Gender" />
+            <TextField name="Gender" label="Gender" variant="outlined" onChange={this.handleChange} value={this.state.Gender} />
             </Grid>
             <Grid item xs={6}>
-            Phone Number
-            <input type="text" name="number" onChange={this.handleChange} value={this.state.PhoneNumber} placeholder="Enter Phone Number" />
+            <TextField name="PhoneNumber" label="Phone Number" variant="outlined" onChange={this.handleChange} value={this.state.PhoneNumber} />
             </Grid>
-            <Grid item xs={12}>
-             Email ID
-              <input type="email" name="EmailID" onChange={this.handleChange} value={this.state.EmailID} placeholder="Enter Email Id" />
+            <Grid item xs={6}>
+            <TextField name="EmailId" label="Email Id" variant="outlined" onChange={this.handleChange} value={this.state.EmailId} />
              </Grid>
-             <Grid item xs={12}>
-              City
-              <input type="text" name="City" onChange={this.handleChange} value={this.state.City} placeholder="Enter City" />
+             <Grid item xs={6}>
+             <TextField name="City" label="City" variant="outlined" onChange={this.handleChange} value={this.state.City} />
               </Grid>
-               <div className="footer">
-              <button type="button" onClick={this.addEmployee} className="btn btn-success">Submit</button>
+            <Grid item xs={12} className="footers">
+                <div className="btn">
+            <Button variant="contained" color="primary" onClick={this.addEmployee}  className="submit"> Submit </Button>
             </div>
-            </Grid>
-        </form>
-          </fieldset>
+             </Grid>
+             </Grid>
+            </form>
         </div>
     );
   }

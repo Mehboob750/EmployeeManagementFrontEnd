@@ -1,6 +1,9 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
-import "./Style.css";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import "./Style.scss";
 import {Link } from "react-router-dom";
 import empService from '../../Services/EmployeeServices'
 let service = new empService()
@@ -52,47 +55,44 @@ export class Register extends React.Component {
   render() 
   {
   return (
-  <div class="login-box">
-  <fieldset>
-            <form  class="container">
-        <h2 align="center">Register</h2>
+    <div class="login-box">
+    <form class="container">
+    <p class="title" align="center">
+            <Typography component="h1" variant="h5">
+             Register
+            </Typography>
+            </p>
          <Grid container spacing={5}>
             <Grid item xs={6}>
-            First Name
-            <input type="text" name="FirstName" onChange={this.handleChange} value={this.state.FirstName} placeholder="Enter First Name" />
+            <TextField name="FirstName" label="First Name" variant="outlined" onChange={this.handleChange} value={this.state.FirstName} />
             </Grid>
             <Grid item xs={6}>
-            Last Name
-            <input type="text" name="LastName" onChange={this.handleChange} value={this.state.LastName} placeholder="Enter Last Name" />
+            <TextField name="LastName" label="Last Name" variant="outlined" onChange={this.handleChange} value={this.state.LastName} />           
             </Grid>
             <Grid item xs={6}>
-            Gender
-            <input type="text" name="Gender" onChange={this.handleChange} value={this.state.Gender} placeholder="Enter Gender" />
+            <TextField name="Gender" label="Gender" variant="outlined" onChange={this.handleChange} value={this.state.Gender} />
             </Grid>
             <Grid item xs={6}>
-            Phone Number
-            <input type="text" name="PhoneNumber" onChange={this.handleChange} value={this.state.PhoneNumber} placeholder="Enter Phone Number" />
+            <TextField name="PhoneNumber" label="Phone Number" variant="outlined" onChange={this.handleChange} value={this.state.PhoneNumber} />
             </Grid>
-            <Grid item xs={12}>
-             Email ID
-              <input type="email" name="EmailId" onChange={this.handleChange} value={this.state.EmailId} placeholder="Enter Email Id" />
+            <Grid item xs={6}>
+            <TextField name="EmailId" label="Email Id" variant="outlined" onChange={this.handleChange} value={this.state.EmailId} />
              </Grid>
              <Grid item xs={6}>
-              City
-              <input type="text" name="City" onChange={this.handleChange} value={this.state.City} placeholder="Enter City" />
+             <TextField name="City" label="City" variant="outlined" onChange={this.handleChange} value={this.state.City} />
               </Grid>
               <Grid item xs={6}>
-              Password
-            <input type="Password" name="Password" onChange={this.handleChange} value={this.state.Password} placeholder="Enter Password" />         
+              <TextField name="Password" label="Password" variant="outlined"  type="password" onChange={this.handleChange} value={this.state.Password} />     
             </Grid>
-               <div className="footer">
-              <button type="button" onClick={this.register} className="btn">Register</button>
-              <Link to="/"><button type="button" className="btn">Login</button></Link>
+            <Grid item xs={12} className="footers">
+                <div className="btn">
+            <Button variant="contained" color="primary" onClick={this.register}  className="submit"> Register </Button>
             </div>
-            </Grid>
-        </form>
-          </fieldset>
-      </div>
+             </Grid>
+             </Grid>
+             <Link to="/"> {"Already have an account? Login"}</Link>
+            </form>
+        </div>
     );
   }
 }
