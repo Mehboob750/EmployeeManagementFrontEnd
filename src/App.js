@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route,Redirect } from 'react-router-dom';
-import "./Components/Login/Style.scss";
 import { Login } from './Components/Login/Login';
-import { Register } from './Components/Login/Register';
+import { Register } from './Components/Register/Register';
 import { AddEmployee } from './Components/Employee/AddEmployee';
 import { GetAllEmployee } from './Components/Employee/GetAllEmployee';
 import { Update } from './Components/Employee/Update'
@@ -14,9 +13,9 @@ class App extends Component {
       <Router>
       <Route exact path="/" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/addEmployee" component={AddEmployee} />
-      <Route path="/dashboard" component={GetAllEmployee} />
-      <Route path="/update" component={Update} />
+      <Route path="/dashboard/addEmployee" component={AddEmployee} />
+      <Route exact path="/dashboard" component={GetAllEmployee} />
+      <Route path="/dashboard/update" component={Update} />
       </Router>
       </div>
     );

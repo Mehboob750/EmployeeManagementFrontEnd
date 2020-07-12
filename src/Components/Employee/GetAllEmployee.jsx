@@ -5,13 +5,11 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow'; 
 import TableHead from '@material-ui/core/TableHead';  
 import TableContainer from '@material-ui/core/TableContainer';  
-import TableBody from '@material-ui/core/TableBody';  
 import Button from '@material-ui/core/Button';
-
+import Typography from '@material-ui/core/Typography';
 import {Link } from "react-router-dom";
 
-
-import "./Table.css";
+import "./Table.scss";
 
 export class GetAllEmployee extends React.Component {
   constructor(props) {
@@ -24,14 +22,20 @@ export class GetAllEmployee extends React.Component {
   render() {
     return (
       <TableContainer component={Paper}> 
-      <h2 align="right"> 
-      <Link to="/addemployee" align="right">
-      <Button variant="contained" color="primary" className="btn btn-success"> Add Employee </Button>
-      </Link>  
-      <Link to="/" align="right">
-      <Button variant="contained" color="primary" className="btn btn-primary">  LogOut </Button>
-      </Link></h2>
-      <h2 align="center">Employee List </h2>
+      <div className="employeebtn">
+      <Link to="/dashboard/addemployee">
+      <Button variant="contained" color="primary"> Add Employee </Button>
+      </Link>
+      </div>
+      <div className="employeebtn">
+      <Link to="/">
+      <Button variant="contained" color="primary">  LogOut </Button>
+      </Link>
+      </div>
+      {/* <h2 align="center">Employee List </h2> */}
+      <p class="title" align="center">
+      <Typography component="h1" variant="h5"> Employee List </Typography>
+      </p>
         <Table stickyHeader aria-label="sticky table" id='Employee'>  
           <TableHead>  
             <TableRow>  
